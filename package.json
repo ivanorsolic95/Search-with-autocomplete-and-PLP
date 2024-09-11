@@ -1,0 +1,36 @@
+{
+  "name": "haas-poc",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "@adobe/react-spectrum": "^3.36.1",
+    "@algolia/autocomplete-core": "^1.17.4",
+    "@algolia/autocomplete-js": "^1.17.4",
+    "@algolia/autocomplete-plugin-query-suggestions": "^1.17.4",
+    "@algolia/autocomplete-plugin-recent-searches": "^1.17.4",
+    "@algolia/autocomplete-shared": "^1.17.4",
+    "@algolia/autocomplete-theme-classic": "^1.17.4",
+    "@algolia/client-search": "^5.2.5",
+    "@radix-ui/react-slider": "^1.2.0",
+    "algoliasearch": "4",
+    "dotenv": "^16.4.5",
+    "instantsearch.js": "4.7.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-instantsearch": "7.12.4",
+    "search-insights": "^2.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "18.0.15",
+    "@types/react-dom": "18.0.6",
+    "parcel": "2.5.0",
+    "parcel-bundler": "^1.12.5",
+    "process": "^0.11.10",
+    "typescript": "4.7.4"
+  }
+}
