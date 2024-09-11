@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductHit from '../types.tsx/ProductHit';
+import '../css/globals.css'
 
 const ProductItem: React.FC<{ hit: ProductHit, components: any }> = ({ hit, components }) => {
     const lastParentCategory = hit.parent_categories ? Object.values(hit.parent_categories).pop() : '';
