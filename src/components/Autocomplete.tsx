@@ -136,7 +136,7 @@ export function Autocomplete({
       getSearchParams() {
         if (!currentCategory) {
           return recentSearches.data!.getAlgoliaSearchParams({
-            hitsPerPage: 6,
+            hitsPerPage: 4,
           });
         }
 
