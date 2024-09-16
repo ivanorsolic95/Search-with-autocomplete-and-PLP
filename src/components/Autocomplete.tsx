@@ -153,6 +153,7 @@ export function Autocomplete({
         'exact_matches',
         INSTANT_SEARCH_HIERARCHICAL_ATTRIBUTES[1],
       ],
+      itemsWithCategories: 4,
       transformSource({ source }) {
         return {
           ...source,
