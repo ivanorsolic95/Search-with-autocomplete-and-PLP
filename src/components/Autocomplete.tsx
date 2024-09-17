@@ -13,13 +13,14 @@ import ProductHit from '../types.tsx/ProductHit';
 import AutocompleteProps from '../types.tsx/AutocompleteProps';
 import SetInstantSearchUiStateOptions from '../types.tsx/SetInstantSearchUiStateOptions';
 
+import { useRecentSearchesPlugin } from '../utils/recentSearchPlugin';
+
 import {
   useHierarchicalMenu,
   usePagination,
   useSearchBox,
 } from 'react-instantsearch';
 import { autocomplete, getAlgoliaResults } from '@algolia/autocomplete-js';
-import { createLocalStorageRecentSearchesPlugin } from '@algolia/autocomplete-plugin-recent-searches';
 import { createQuerySuggestionsPlugin } from '@algolia/autocomplete-plugin-query-suggestions';
 import { debounce } from '@algolia/autocomplete-shared';
 
@@ -64,23 +65,11 @@ export function Autocomplete({
     [categories]
   );
 
-  const plugins = useMemo(() => {
-    const recentSearches = createLocalStorageRecentSearchesPlugin({
-      key: 'instantsearch',
-      limit: 3,
-      transformSource({ source }) {
-        return {
-          ...source,
-          onSelect({ item }) {
-            setInstantSearchUiState({
-              query: item.label,
-              category: item.category,
-            });
-          },
-        };
-      },
-    });
+  // Get both recentSearches and addItem from useRecentSearchesPlugin
+  const { recentSearches, addItem } = useRecentSearchesPlugin(setInstantSearchUiState);
 
+  const plugins = useMemo(() => {
+  
     const querySuggestionsInCategory = createQuerySuggestionsPlugin({
       searchClient,
       indexName: INSTANT_SEARCH_QUERY_SUGGESTIONS,
@@ -238,7 +227,7 @@ export function Autocomplete({
                 );
               },
               item({ item, components }) {
-                return <ProductItem hit={item} components={components} />;
+                return <ProductItem hit={item} components={components} addItem={addItem} query={query} />;
               },
               noResults() {
                 return 'No products matching.';
