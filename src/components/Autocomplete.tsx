@@ -15,6 +15,8 @@ import SetInstantSearchUiStateOptions from '../types.tsx/SetInstantSearchUiState
 
 import { useRecentSearchesPlugin } from '../utils/recentSearchPlugin';
 
+import '../css/Autocomplete.css'
+
 import {
   useHierarchicalMenu,
   usePagination,

@@ -1,0 +1,3 @@
+.aa-Panel:not(:has(.aa-Source)) {
+  display: none;
+}
