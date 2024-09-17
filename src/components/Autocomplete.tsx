@@ -65,7 +65,6 @@ export function Autocomplete({
     [categories]
   );
 
-  // Get both recentSearches and addItem from useRecentSearchesPlugin
   const { recentSearches, addItem } = useRecentSearchesPlugin(setInstantSearchUiState);
 
   const plugins = useMemo(() => {
