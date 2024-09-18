@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import aa from "search-insights";
 import {
@@ -40,6 +40,30 @@ aa('init', {
 const future = { preserveSharedStateOnUnmount: true };
 
 export function App() {
+  
+  useEffect(() => {
+    const updateLabels = () => {
+      const labels = document.getElementsByClassName('ais-CurrentRefinements-label');
+      if (labels.length > 0) {
+        labels[0].textContent = 'Category:';
+      }
+    };
+
+    updateLabels();
+
+    const observer = new MutationObserver((mutationsList) => {
+      for (const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+          updateLabels();
+        }
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div>
       <header className="header">
