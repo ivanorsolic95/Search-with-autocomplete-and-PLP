@@ -172,6 +172,10 @@ em {
   height: 100%;
 }
 
+.ais-ClearRefinements {
+  margin-bottom: 1rem;
+}
+
 a {
   color: black;
 }
