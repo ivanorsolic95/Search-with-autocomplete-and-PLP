@@ -193,6 +193,7 @@ export function Autocomplete({
     const autocompleteInstance = autocomplete({
       ...autocompleteProps,
       container: autocompleteContainer.current,
+      panelContainer: autocompleteContainer.current,
       initialState: { query },
       insights: true,
       plugins,
