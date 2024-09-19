@@ -1,3 +1,7 @@
 .aa-Panel:not(:has(.aa-Source)) {
   display: none;
 }
+
+.aa-Panel {
+  position: unset !important;
+}
